@@ -9,6 +9,7 @@
 std::vector<int> vectorFromInput(int items)
 {
 	// it might be better to have a size argument rather than pushing to this vector.
+	// ^ lol I am dumb.
 	std::vector<int> vOut;
 	int temp;
 
