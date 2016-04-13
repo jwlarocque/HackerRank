@@ -24,7 +24,8 @@ int indexOfSorted(int value, std::vector<int> array) {
     int startIndex = 0;
     int endIndex = array.size() - 1;
     int currentIndex;
-    while (1) {
+    // while (1) should probably not be included in any solution.
+    while (endIndex >= startIndex) {
         currentIndex = (endIndex + startIndex) / 2;
         if (array[currentIndex] == value) {
             return currentIndex;

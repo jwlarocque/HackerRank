@@ -5,9 +5,10 @@ def memoize(f):
             return cache[args]
         else:
             cache[args] = f(*args)
-            return cach[args]
+            return cache[args]
     return decorated
     
+@memoize # :\ I forgot about this...
 def moddedFib(a, b, n):
     if (n == 1):
         return a
