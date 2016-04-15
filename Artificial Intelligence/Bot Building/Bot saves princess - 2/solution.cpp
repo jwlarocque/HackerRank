@@ -7,8 +7,8 @@
 #include <algorithm>
 
 
-// I considered writing a class for this, but overkill for this problem.
-// Also these 'Bot saves princess' problems are somewhat underwhelming.
+// didn't both optimizing this with the given position (for that matter, it would be much
+// faster to get both char positions at once).  Just eat it with cin.
 std::vector< std::vector<char> > gridFromInput(int height, int width)
 {
     std::string temp;
@@ -53,24 +53,21 @@ std::vector<int> positionInGrid(char element, std::vector< std::vector<char> > g
 
 int main()
 {
-    int size;
-    std::cin >> size;
+    int size, x, y;
+    std::cin >> size >> x >> y;
     std::vector< std::vector<char> > mainGrid = gridFromInput(size, size);
     std::vector<int> mPos = positionInGrid('m', mainGrid);
     std::vector<int> pPos = positionInGrid('p', mainGrid);
-    while (mPos[0] < pPos[0]) {
+    if (mPos[0] < pPos[0]) {
         std::cout << "DOWN" << std::endl;
         mPos[0]++;
-    }
-    while (mPos[0] > pPos[0]) {
+    } else if (mPos[0] > pPos[0]) {
         std::cout << "UP" << std::endl;
         mPos[0]--;
-    }
-    while (mPos[1] > pPos[1]) {
+    } else if (mPos[1] > pPos[1]) {
         std::cout << "LEFT" << std::endl;
         mPos[1]--;
-    }
-    while (mPos[1] < pPos[1]) {
+    } else {
         std::cout << "RIGHT" << std::endl;
         mPos[1]++;
     }
